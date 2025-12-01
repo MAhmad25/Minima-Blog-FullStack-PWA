@@ -70,7 +70,7 @@ const Home = () => {
                               </div>
                         </div>
                   ) : (
-                        <div className=" text-center text-2xl px-10 col-span-full place-self-center ">⭐Want to read these well-written posts? Log in to continue</div>
+                        <div className=" text-center text-2xl px-10 col-span-full place-self-center ">⭐Want to read well-written posts? Log in to continue</div>
                   )}
             </section>
       );

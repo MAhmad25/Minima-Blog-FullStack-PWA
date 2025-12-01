@@ -9,7 +9,7 @@ const Input = forwardRef(({ label, type = "text", placeholder = "Enter something
                               {label} {star && <span className="text-red-500">*</span>}
                         </label>
                   )}
-                  <input ref={ref} id={id} className={`px-4 w-full py-2 block border-b-2 rounded  outline-none ${className}`} type={type} placeholder={placeholder} {...attributes} />
+                  <input ref={ref} id={id} className={` w-full py-2 block border-b-2 focus:border-b-blue-500 transition-all rounded  outline-none ${className}`} type={type} placeholder={placeholder} {...attributes} />
             </div>
       );
 });

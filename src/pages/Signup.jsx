@@ -56,7 +56,7 @@ const Signup = () => {
                                     <p className="whitespace-nowrap text-center">Enter your information to get started</p>
                                     <form onSubmit={handleSubmit(accountCreation)} className="grid  gap-3 place-content-center w-full h-full mt-5 grid-cols-2">
                                           {/* Username */}
-                                          <Input {...register("username", { required: "Username is required", minLength: { value: 2, message: "Atleast 2 characters" } })} label={"Username"} type={"text"} placeholder={"Enter your name"} star={true} disabled={isSubmitting} />
+                                          <Input {...register("username", { required: "Username is required", minLength: { value: 2, message: "Atleast 2 characters" } })} label={"Username"} type={"text"} placeholder={"Enter your display name"} star={true} disabled={isSubmitting} />
                                           {errors.username && <span className="text-red-500 text-xs sm:text-sm tracking-tighter leading-none">{errors.username.message}</span>}
                                           {/* Email */}
                                           <Input {...register("email", { required: "Email is required" })} label={"Email"} type={"email"} placeholder={"Enter your email"} star={true} disabled={isSubmitting} />
