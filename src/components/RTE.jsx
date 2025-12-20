@@ -29,7 +29,7 @@ const RTE = ({ name, control, label, defaultValues = "" }) => {
                                           menubar: true,
                                           plugins: ["advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor", "searchreplace", "visualblocks", "fullscreen", "insertdatetime", "media", "table", "help", "wordcount", "code", "emoticons", "directionality", "hr", "pagebreak", "nonbreaking", "toc", "quickbars"],
                                           toolbar: " blocks | bold italic underline | " + "code preview fullscreen | " + "forecolor backcolor | fontfamily fontsize | " + "alignleft aligncenter alignright alignjustify | " + "bullist numlist checklist outdent indent | " + "link image media | table | emoticons charmap hr pagebreak | " + "removeformat | a11ycheck help",
-                                          content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:18px; background-color: #FDF9EF; }",
+                                          content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:18px; background-color: #ffff; }",
                                           license_key: "gpl",
                                     }}
                                     value={value || defaultValues}

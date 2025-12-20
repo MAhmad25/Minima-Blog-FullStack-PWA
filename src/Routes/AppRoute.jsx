@@ -1,6 +1,6 @@
 import { Route, Routes, useSearchParams } from "react-router-dom";
 import { Login, Signup, Home, Posts, WritePost, ViewPost, EditPost, Page404 } from "../pages/index";
-import { Nav, Footer, ScreenLoader, Dock } from "../components/index";
+import { Footer, PillNav, ScreenLoader } from "../components/index";
 import { useEffect, useState } from "react";
 import appAuth from "../app/AuthService";
 import { useDispatch } from "react-redux";
@@ -50,12 +50,17 @@ const AppRoute = () => {
             })();
       }, [dispatch, secret, userid]);
       useAllPosts();
+
+      const menuItems = [
+            { label: "Home", ariaLabel: "Go to home page", href: "/" },
+            { label: "Journals", ariaLabel: "Read the journals", href: "/journals" },
+      ];
+
       return (
             <>
                   {isLoading && <ScreenLoader />}
                   <Toaster />
-                  <Nav />
-                  {!isLoading && <Dock />}
+                  <PillNav items={menuItems} className="fixed top-0" />
                   <Routes>
                         <Route index path="/" element={<Home />} />
                         <Route

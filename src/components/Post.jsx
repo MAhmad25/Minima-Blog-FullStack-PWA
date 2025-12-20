@@ -10,17 +10,7 @@ const Post = ({ postData }) => {
             <Link to={`/journals/${postData?.$id}`}>
                   <div className="cursor-pointer  space-y-4 shrink-0 text-[var(--color-bl)] px-5 py-5">
                         {/* Featured Image */}
-                        <div className="w-full min-h-[300px] overflow-hidden rounded grid place-content-center">
-                              {url ? (
-                                    <img
-                                          className="w-full h-full object-cover"
-                                          src={url} 
-                                          alt="Cover Image"
-                                    />
-                              ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-gray-500">Loading image...</div>
-                              )}
-                        </div>
+                        <div className="w-full  max-h-[250px]  overflow-hidden rounded grid place-content-center">{url ? <img className="w-full h-full object-cover" src={url} alt="Cover Image" /> : <div className="w-full h-full flex items-center justify-center text-gray-500">Loading image...</div>}</div>
                         {/* Author Name and Date of post */}
                         <div className="w-full  flex gap-4 items-center">
                               <h2 className="leading-none tracking-tight">{postData?.authorName}</h2>

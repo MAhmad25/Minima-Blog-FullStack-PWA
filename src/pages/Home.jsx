@@ -13,9 +13,8 @@ const Home = () => {
       const userData = useSelector((state) => state.auth.userData);
       return (
             <section className="w-full  px-5 font-primary-text  text-[var(--color-bl)]   flex flex-col pt-34  gap-14  items-center">
-                  <p className="border-[1px] font-alliance w-fit px-3 py-1 text-xs sm:text-sm rounded-full">✨ Welcome to the future of blogging</p>
-                  <h1 className="font-cool text-center sm:w-1/2   font-black text-5xl sm:text-7xl tracking-tight ">Thoughts, stories and ideas.</h1>
-                  <p className="font-ppneue  text-center sm:w-1/2 text-xl sm:text-2xl ">A minimalist blog platform for the modern web, where ideas meet elegant design and creativity knows no bounds.</p>
+                  <h1 className="font-cool text-center sm:w-1/2   font-black text-5xl sm:text-7xl tracking-tight ">Thoughts, stories and ideas</h1>
+                  <p className="font-ppneue  text-center sm:w-1/2 text-xl sm:text-2xl ">Write anything that comes to your mind! No limits</p>
                   {/* Button */}
                   <div className="flex gap-4">
                         <Link className="sm:px-4 p-3 text-sm sm:text-lg sm:py-2 rounded-xl bg-[var(--color-bl)] text-[var(--color-wht)]" to="/write-post">

@@ -2,11 +2,19 @@ import { Container } from "./components/index";
 import AppRoute from "./Routes/AppRoute";
 import PostLoader from "./components/ui/PostLoader";
 import { useSelector } from "react-redux";
+// import { StaggeredMenu } from "./components/index";
 const App = () => {
       const isLoading = useSelector((state) => state.loader.isLoading);
+      // const menuItems = [
+      //       { label: "Home", ariaLabel: "Go to home page", link: "/" },
+      //       { label: "Journals", ariaLabel: "Read the journals", link: "/journals" },
+      // ];
       return (
             <Container>
                   {isLoading && <PostLoader />}
+                  {/* <div className="fixed w-screen pointer-events-none h-screen overflow-hidden">
+                        <StaggeredMenu items={menuItems} menuButtonColor="#000000" openMenuButtonColor="#000000" />
+                  </div> */}
                   <AppRoute />
             </Container>
       );

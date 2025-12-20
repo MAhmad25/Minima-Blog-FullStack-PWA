@@ -8,7 +8,7 @@ const Container = ({ children }) => {
         radial-gradient(circle at 40% 40%, rgba(255, 210, 180, 0.15) 0%, transparent 50%),
         `,
                   }}
-                  className="max-w-screen relative"
+                  className="max-w-screen relative overflow-hidden"
             >
                   {children}
             </main>
