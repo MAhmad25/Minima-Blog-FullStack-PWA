@@ -10,4 +10,5 @@ import FormTagSelector from "./FormTagSelector";
 import Dock from "./Dock";
 import PillNav from "./PillNav";
 import StaggeredMenu from "./StaggeredMenu";
-export { Footer, PillNav, Post, StaggeredMenu, Container, Logout, Input, Loader, RTELoader, RTE, FormTagSelector, Dock };
+import LinesWrapper from "./ui/LinesWrapper";
+export { Footer, PillNav, LinesWrapper, Post, StaggeredMenu, Container, Logout, Input, Loader, RTELoader, RTE, FormTagSelector, Dock };
