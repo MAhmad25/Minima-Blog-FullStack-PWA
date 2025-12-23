@@ -8,6 +8,7 @@ import { Logout } from "./index";
 
 const PillNav = ({ logo = "/logo.svg", logoAlt = "Logo", items, activeHref, className = "", ease = "power3.easeOut", baseColor = "#fff", pillColor = "#060010", hoveredPillTextColor = "#060010", pillTextColor, initialLoadAnimation = true }) => {
       const status = useSelector((state) => state.auth.status);
+      const loading = useSelector((state) => state.loader.isSkeleton);
       const resolvedPillTextColor = pillTextColor ?? baseColor;
       const circleRefs = useRef([]);
       const tlRefs = useRef([]);
@@ -259,17 +260,29 @@ const PillNav = ({ logo = "/logo.svg", logoAlt = "Logo", items, activeHref, clas
                                                 </li>
                                           );
                                     })}
-
-                                    <Link className="px-3 py-2 flex items-center justify-center-safe gap-2 border-[1px] rounded-full text-[var(--color-wht)] bg-[var(--color-bl)]  border-white/60" to={`${status ? "/write-post" : "/login"}`}>
-                                          {status ? <LuSquarePen /> : <MdLogin />}
-                                          <p className="leading-none whitespace-nowrap tracking-tight">{status ? "Write Blog" : "Login"}</p>
-                                    </Link>
-                                    {!status && (
-                                          <Link className="border-[0.1px] rounded-full px-3 py-1" to="/create-account ">
-                                                New account
-                                          </Link>
+                                    {loading ? (
+                                          <>
+                                                <span className="inline-flex items-center justify-center border-[0.1px] rounded-full px-3 py-1 w-28 animate-pulse" aria-busy="true">
+                                                      <span className="h-[80%] w-full rounded-full bg-gray-300 dark:bg-gray-700" />
+                                                </span>
+                                                <span className="inline-flex items-center justify-center border-[0.1px] rounded-full px-3 py-1 w-28 animate-pulse" aria-busy="true">
+                                                      <span className="h-[80%] w-full rounded-full bg-gray-300 dark:bg-gray-700" />
+                                                </span>
+                                          </>
+                                    ) : (
+                                          <>
+                                                <Link className="px-3 py-2 flex items-center justify-center-safe gap-2 border-[1px] rounded-full text-[var(--color-wht)] bg-[var(--color-bl)]  border-white/60" to={`${status ? "/write-post" : "/login"}`}>
+                                                      {status ? <LuSquarePen /> : <MdLogin />}
+                                                      <p className="leading-none whitespace-nowrap tracking-tight">{status ? "Write Blog" : "Login"}</p>
+                                                </Link>
+                                                {!status && (
+                                                      <Link className="border-[0.1px] rounded-full px-3 py-1" to="/create-account ">
+                                                            Create an account
+                                                      </Link>
+                                                )}
+                                                {status && <Logout />}
+                                          </>
                                     )}
-                                    {status && <Logout />}
                               </ul>
                         </div>
                   </nav>

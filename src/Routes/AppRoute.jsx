@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import appAuth from "../app/AuthService";
 import { useDispatch } from "react-redux";
 import { login, logout } from "../store/reducers/authSlice";
+import { showSkeletonFalse } from "../store/reducers/loadingSlice";
 import toast, { Toaster } from "react-hot-toast";
 import Protected from "./Protected";
 import useAllPosts from "../hooks/useAllPosts";
@@ -34,9 +35,11 @@ const AppRoute = () => {
                         const userData = await appAuth.getCurrentUser();
                         if (userData && userData.emailVerification) {
                               // Here the userData will come check if user email is verified
+                              dispatch(showSkeletonFalse());
                               dispatch(login(userData));
                         } else {
                               dispatch(logout());
+                              dispatch(showSkeletonFalse());
                         }
                   } catch (err) {
                         console.log(err.message);

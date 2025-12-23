@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
       isLoading: false,
+      isSkeleton: true,
 };
 const LoadingSlice = createSlice({
       name: "loading",
@@ -13,7 +14,10 @@ const LoadingSlice = createSlice({
             setLoadingFalse: (state) => {
                   state.isLoading = false;
             },
+            showSkeletonFalse: (state) => {
+                  state.isSkeleton = false;
+            },
       },
 });
-export const { setLoadingTrue, setLoadingFalse } = LoadingSlice.actions;
+export const { setLoadingTrue, setLoadingFalse, showSkeletonFalse } = LoadingSlice.actions;
 export default LoadingSlice.reducer;
