@@ -86,14 +86,7 @@ const AppRoute = () => {
                               }
                         />
                         <Route path="/journals" element={<Posts />} />
-                        <Route
-                              path="/journals/:id"
-                              element={
-                                    <Protected>
-                                          <ViewPost />
-                                    </Protected>
-                              }
-                        />
+                        <Route path="/journals/:id" element={<ViewPost />} />
                         <Route
                               path="/u/edit-post/:id"
                               element={
