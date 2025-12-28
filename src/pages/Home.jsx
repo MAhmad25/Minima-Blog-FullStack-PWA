@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { GoPeople } from "react-icons/go";
 import { PiBookOpen } from "react-icons/pi";
-import { Post } from "../components/index.js";
+import { Post, CardSkeleton } from "../components/index.js";
 import { useScrollTop } from "./index.js";
 import { BsArrowRightShort } from "react-icons/bs";
 import { useSelector } from "react-redux";
@@ -12,7 +12,7 @@ const Home = () => {
       const allPosts = useSelector((state) => state.posts.posts);
       return (
             <section className="w-full  px-5 font-primary-text  text-[var(--color-bl)]   flex flex-col pt-34  gap-14  items-center">
-                  <h1 className="font-cool text-center sm:w-1/2   font-black text-5xl sm:text-7xl tracking-tight ">Thoughts, stories and ideas</h1>
+                  <h1 className="font-cool text-center sm:w-1/2   font-black text-5xl sm:text-7xl tracking-tight  ">Thoughts, stories and ideas</h1>
                   <p className="font-ppneue  text-center sm:w-1/2 text-xl sm:text-2xl ">Write anything that comes to your mind! No limits</p>
                   {/* Button */}
                   <div className="flex gap-4">
@@ -58,7 +58,7 @@ const Home = () => {
                               <p className="text-center text-sm sm:text-lg sm:w-[40%] leading-none">Discover the most compelling articles and insights from our community of writers</p>
                         </div>
                         {/* Cards */}
-                        <section className="w-full grid gap-5 grid-cols-1  py-10 sm:grid-cols-2 lg:grid-cols-3">{allPosts?.length > 0 ? allPosts?.map((eachPost) => <Post key={eachPost.$id} postData={eachPost} />).slice(0, 3) : <div className=" text-center text-2xl px-10 col-span-full place-self-center ">No Post Available! Be the first One to write a Post</div>}</section>
+                        <section className="w-full grid gap-5 grid-cols-1  py-10 sm:grid-cols-2 lg:grid-cols-3">{allPosts?.length > 0 ? allPosts?.map((eachPost) => <Post key={eachPost.$id} postData={eachPost} />).slice(0, 3) : Array.from({ length: 3 }).map((_, i) => <CardSkeleton key={i} />)}</section>
                         <div className="w-full flex flex-col justify-center items-center h-fit">
                               <Link className="sm:px-4 justify-center items-center flex gap-2 p-3 text-lg sm:py-2 rounded-xl border-[1px] bg-transparent" to="/journals">
                                     <p>View all stories</p>

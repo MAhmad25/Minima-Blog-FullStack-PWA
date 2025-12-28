@@ -15,7 +15,7 @@ import { useScrollTop } from "./index.js";
 const ViewPost = () => {
       useScrollTop();
       const [postData, setPostData] = useState({});
-      const allPosts = useSelector((state) => state.posts.posts);    
+      const allPosts = useSelector((state) => state.posts.posts);
       document.title = "Article | " + postData?.title || "Fetching Post...";
       const { id } = useParams();
       const navigate = useNavigate();
