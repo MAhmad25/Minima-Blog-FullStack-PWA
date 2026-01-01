@@ -6,7 +6,7 @@ import { LuSquarePen } from "react-icons/lu";
 import { MdLogin } from "react-icons/md";
 import { Logout } from "./index";
 
-export const StaggeredMenu = ({ position = "right", colors = ["#504f53", "#201f23"], items = [], displayItemNumbering = true, className, logoUrl = "/logo.svg", menuButtonColor = "#000000", openMenuButtonColor = "#000000", changeMenuColorOnOpen = true, isFixed = false, accentColor = "#5227FF", closeOnClickAway = true, onMenuOpen, onMenuClose }) => {
+export const StaggeredMenu = ({ position = "right", colors = ["#504f53", "#201f23"], items = [], displayItemNumbering = true, className, logoUrl = "/favicon-628.png", menuButtonColor = "#000000", openMenuButtonColor = "#000000", changeMenuColorOnOpen = true, isFixed = false, accentColor = "#5227FF", closeOnClickAway = true, onMenuOpen, onMenuClose }) => {
       const [open, setOpen] = useState(false);
       const openRef = useRef(false);
       const status = useSelector((state) => state.auth.status);
@@ -331,7 +331,7 @@ export const StaggeredMenu = ({ position = "right", colors = ["#504f53", "#201f2
 
                         <header className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between p-[2em] bg-transparent pointer-events-auto z-20" aria-label="Main navigation header">
                               <div className="sm-logo flex items-center select-none pointer-events-none" aria-label="Logo">
-                                    <img src={logoUrl} alt="Logo" className="sm-logo-img block h-8 w-auto object-contain" draggable={false} width={110} height={24} />
+                                    <img src={logoUrl} alt="Logo" className="sm-logo-img block h-8 invert w-auto object-contain" draggable={false} width={110} height={24} />
                               </div>
 
                               <button ref={toggleBtnRef} className="sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer text-[#e9e9ef] font-medium leading-none overflow-visible pointer-events-auto" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="staggered-menu-panel" onClick={toggleMenu} type="button">
