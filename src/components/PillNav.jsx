@@ -206,7 +206,7 @@ const PillNav = ({ logo = "/favicon-628.png", logoAlt = "Logo", items, activeHre
                                           const isActive = activeHref === item.href;
 
                                           const pillStyle = {
-                                                background: "var(--pill-bg, #fff)",
+                                                background: "var(--pill-bg)",
                                                 color: "var(--pill-text, var(--base, #000))",
                                                 paddingLeft: "var(--pill-pad-x)",
                                                 paddingRight: "var(--pill-pad-x)",

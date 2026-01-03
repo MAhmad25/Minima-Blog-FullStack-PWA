@@ -338,7 +338,7 @@ export const StaggeredMenu = ({ position = "right", colors = ["#504f53", "#201f2
                                     <span ref={textWrapRef} className="sm-toggle-textWrap relative inline-block h-[1em] overflow-hidden whitespace-nowrap w-[var(--sm-toggle-width,auto)] min-w-[var(--sm-toggle-width,auto)]" aria-hidden="true">
                                           <span ref={textInnerRef} className="sm-toggle-textInner flex flex-col leading-none">
                                                 {textLines.map((l, i) => (
-                                                      <span className="sm-toggle-line block h-[1em] leading-none" key={i}>
+                                                      <span className="sm-toggle-line block font-semibold h-[1em] leading-none" key={i}>
                                                             {l}
                                                       </span>
                                                 ))}
@@ -358,7 +358,7 @@ export const StaggeredMenu = ({ position = "right", colors = ["#504f53", "#201f2
                                           {items.length &&
                                                 items.map((it, idx) => (
                                                       <li className="sm-panel-itemWrap cursor-pointer relative overflow-hidden leading-none" key={it.label + idx}>
-                                                            <Link to={`${it.link}`} className="sm-panel-item relative text-black font-semibold  cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]" aria-label={it.ariaLabel} data-index={idx + 1}>
+                                                            <Link onClick={toggleMenu} to={`${it.link}`} className="sm-panel-item relative text-black font-semibold  cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]" aria-label={it.ariaLabel} data-index={idx + 1}>
                                                                   <span className="sm-panel-itemLabel text-5xl inline-block [transform-origin:50%_100%] will-change-transform">{it.label}</span>
                                                             </Link>
                                                       </li>
@@ -368,18 +368,18 @@ export const StaggeredMenu = ({ position = "right", colors = ["#504f53", "#201f2
                                     <ul className="sm-socials-list list-none m-0 p-0 flex flex-row items-center gap-4 flex-wrap" role="list">
                                           <li>
                                                 {!status && (
-                                                      <Link className="border-[0.1px] rounded-full px-3 py-1" to="/create-account ">
+                                                      <Link onClick={toggleMenu} className="border-[0.1px] rounded-full px-3 py-1" to="/create-account ">
                                                             Create account
                                                       </Link>
                                                 )}
                                           </li>
                                           <li>
-                                                <Link className="px-3 py-2 flex items-center justify-center-safe gap-2 border-[1px] rounded-full text-[var(--color-wht)] bg-[var(--color-bl)]  border-white/60" to={`${status ? "/write-post" : "/login"}`}>
+                                                <Link onClick={toggleMenu} className="px-3 py-2 flex items-center justify-center-safe gap-2 border-[1px] rounded-full text-[var(--color-wht)] bg-[var(--color-bl)]  border-white/60" to={`${status ? "/write-post" : "/login"}`}>
                                                       {status ? <LuSquarePen /> : <MdLogin />}
                                                       <p className="leading-none whitespace-nowrap tracking-tight">{status ? "Write Blog" : "Login"}</p>
                                                 </Link>
                                           </li>
-                                          <li> {status && <Logout />}</li>
+                                          <li onClick={toggleMenu}> {status && <Logout />}</li>
                                     </ul>
                               </div>
                         </aside>

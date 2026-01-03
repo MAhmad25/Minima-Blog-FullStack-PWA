@@ -9,7 +9,7 @@ import { showSkeletonFalse } from "../store/reducers/loadingSlice";
 import toast, { Toaster } from "react-hot-toast";
 import Protected from "./Protected";
 import useAllPosts from "../hooks/useAllPosts";
-import DistortedGlass from "../components/ui/distorted-glass";
+import DistortedGlass from "../components/ui/DistortedGlass";
 
 const AppRoute = () => {
       const dispatch = useDispatch();

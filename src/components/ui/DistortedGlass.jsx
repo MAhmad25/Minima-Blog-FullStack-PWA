@@ -1,7 +1,7 @@
 const DistortedGlass = () => {
       return (
             <>
-                  <div className="fixed hidden z-[99999] bottom-0 h-[50px] w-[360px] overflow-hidden rounded-b-2xl lg:w-[600px]  xl:block xl:w-full">
+                  <div className="fixed z-[999] top-0 h-[50px]  overflow-hidden rounded-b-2xl w-full  xl:block xl:w-full">
                         <div className="pointer-events-none absolute bottom-0  z-10 size-full overflow-hidden rounded-b-2xl  border border-[#f5f5f51a]">
                               <div className="glass-effect size-full"></div>
                         </div>
