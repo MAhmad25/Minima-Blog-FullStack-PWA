@@ -27,7 +27,7 @@ const Signup = () => {
             }
       };
       return (
-            <section className=" min-h-[calc(100svh-5rem)] flex text-[var(--color-bl)]  font-primary-text justify-center items-center bg-[var(--color-wht)] ">
+            <section className=" min-h-[calc(100svh-5rem)] flex text-[var(--color-bl)] pt-20 font-primary-text justify-center items-center bg-[var(--color-wht)] ">
                   <div className="w-full sm:w-1/2  grid place-content-center h-full">
                         {showEmailSent ? (
                               <>
@@ -62,7 +62,7 @@ const Signup = () => {
                                           <Input {...register("email", { required: "Email is required" })} label={"Email"} type={"email"} placeholder={"Enter your email"} star={true} disabled={isSubmitting} />
                                           {errors.email && <span className="text-red-500 text-xs sm:text-sm tracking-tighter leading-none">{errors.email.message}</span>}
                                           {/* Password */}
-                                          <Input {...register("password", { required: "Password is required", minLength: { value: 8, message: "Must be 8 characters long" } })} label={"Password"} type={"password"} placeholder={"Enter your password"} star={true} disabled={isSubmitting} />
+                                          <Input {...register("password", { required: "Password is required", minLength: { value: 8, message: "Must be 8 characters long" } })} label={"Password"} type={"password"} placeholder={"Create a 8 length of password"} star={true} disabled={isSubmitting} />
                                           {errors.password && <span className="text-red-500 text-xs sm:text-sm tracking-tighter leading-none">{errors.password.message}</span>}
                                           <button disabled={isSubmitting} type="submit" className={`px-3 col-span-2 flex justify-center items-center py-2 border-[1px] text-[var(--color-wht)] font-medium bg-[var(--color-bl)]  rounded-xl  ${isSubmitting ? "opacity-60  cursor-none" : "cursor-pointer opacity-100"}`}>
                                                 {isSubmitting ? <Loader /> : "Create account"}

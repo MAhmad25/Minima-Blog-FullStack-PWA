@@ -43,7 +43,7 @@ const Login = () => {
             }
       };
       return (
-            <section className=" min-h-[calc(100svh-5rem)] flex text-[var(--color-bl)]  font-primary-text justify-center items-center bg-[var(--color-wht)] ">
+            <section className=" min-h-[calc(100svh-5rem)] flex text-[var(--color-bl)] pt-10 font-primary-text justify-center items-center bg-[var(--color-wht)] ">
                   <div className="w-full sm:w-1/2  grid place-content-center h-full">
                         <h1 className="text-4xl text-center font-secondary-text sm:text-5xl">Welcome Back</h1>
                         <p className="whitespace-nowrap text-center">Enter your credentials to access your account</p>
