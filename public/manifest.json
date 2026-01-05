@@ -2,7 +2,7 @@
       "name": "Minima Blog",
       "short_name": "Minima Blog",
       "description": "Write anything that comes to your mind! No limits",
-      "id": "https://minimafordev.vercel.app",
+      "id": "/",
       "icons": [
             {
                   "src": "/appicon.png",
