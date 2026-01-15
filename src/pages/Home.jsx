@@ -6,6 +6,7 @@ import { Post, CardSkeleton } from "../components/index.js";
 import { useScrollTop } from "./index.js";
 import { BsArrowRightShort } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { MetalButton } from "../components/ui/MetalButton.jsx";
 const Home = () => {
       document.title = "Minima | Home";
       useScrollTop();
@@ -60,9 +61,11 @@ const Home = () => {
                         {/* Cards */}
                         <section className="w-full grid gap-5 grid-cols-1  py-10 sm:grid-cols-2 lg:grid-cols-3">{allPosts?.length > 0 ? allPosts?.map((eachPost) => <Post key={eachPost.$id} postData={eachPost} />).slice(0, 3) : Array.from({ length: 3 }).map((_, i) => <CardSkeleton key={i} />)}</section>
                         <div className="w-full flex flex-col justify-center items-center h-fit">
-                              <Link className="sm:px-4 justify-center items-center flex gap-2 p-3 text-lg sm:py-2 rounded-xl border-[1px] bg-transparent" to="/journals">
-                                    <p>View all stories</p>
-                                    <BsArrowRightShort />
+                              <Link className="justify-center items-center flex  text-lg  rounded-xl  bg-transparent" to="/journals">
+                                    <MetalButton>
+                                          <p>View all stories</p>
+                                          <BsArrowRightShort />
+                                    </MetalButton>
                               </Link>
                         </div>
                   </div>
