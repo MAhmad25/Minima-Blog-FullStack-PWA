@@ -1,3 +1,6 @@
+
+<img src="https://i.ibb.co/whPxFvMC/Screenshot-2026-02-06-214922.png" alt="Screenshot 2026 02 06 214922" border="0">
+
 # 📝 Minima Blog
 
 A modern, minimalist fullstack blog platform built with **React**, **Vite**, **TailwindCSS**, **Redux**, and **Appwrite** as the backend server. Effortlessly create, edit, and share beautiful posts with a clean, distraction-free interface.
