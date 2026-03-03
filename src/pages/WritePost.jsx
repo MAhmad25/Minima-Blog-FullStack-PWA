@@ -10,7 +10,7 @@ import { useScrollTop } from "./index.js";
 import { useWebHaptics } from "web-haptics/react";
 
 const WritePost = ({ editPost }) => {
-      const { trigger } = useWebHaptics();
+      const { trigger } = useWebHaptics({ debug: true });
       useScrollTop();
       document.title = "Minima | Write your post";
       const navigate = useNavigate();
@@ -35,10 +35,9 @@ const WritePost = ({ editPost }) => {
                   readingTime: 1,
             },
       });
-      if (errors) {
+      if (Object.keys(errors).length != 0) {
             trigger([{ duration: 40 }, { delay: 40, duration: 40 }, { delay: 40, duration: 40 }], { intensity: 0.9 });
       }
-
       // if editing and editPost.coverImage is already a URL, show it.
       // If your coverImage is not a URL but an id, replace this with a fetch to get the file URL.
       useEffect(() => {
@@ -60,11 +59,9 @@ const WritePost = ({ editPost }) => {
       const coverImageRegister = register("coverImage", { required: editPost ? false : "Image is required" });
 
       const handleFileChange = (e) => {
-            // Call react-hook-form's onChange so form still registers the file
             coverImageRegister.onChange(e);
             const file = e.target.files?.[0];
             if (file) {
-                  // revoke previously created object URL
                   if (prevUrlRef.current && prevUrlRef.current.startsWith("blob:")) {
                         URL.revokeObjectURL(prevUrlRef.current);
                   }
@@ -72,7 +69,6 @@ const WritePost = ({ editPost }) => {
                   prevUrlRef.current = url;
                   setPreview(url);
             } else {
-                  // no file selected -> clear preview
                   if (prevUrlRef.current && prevUrlRef.current.startsWith("blob:")) {
                         URL.revokeObjectURL(prevUrlRef.current);
                   }
@@ -92,7 +88,6 @@ const WritePost = ({ editPost }) => {
       const formSubmittingToDb = async (data) => {
             dispatch(setLoadingTrue());
             if (editPost) {
-                  console.log(editPost);
                   const hasNewImage = data.coverImage && data.coverImage.length > 0 && data.coverImage[0];
                   const newFile = hasNewImage && (await docService.createFile(data.coverImage[0]));
                   if (newFile) {
