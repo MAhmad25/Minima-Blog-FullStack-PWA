@@ -1,7 +1,7 @@
 import { Route, Routes, useSearchParams } from "react-router-dom";
 import { Login, Signup, Home, Posts, WritePost, ViewPost, EditPost, Page404 } from "../pages/index";
-import { Footer, PillNav, DistortedGlass } from "../components/index";
-import { useEffect } from "react";
+import { PillNav } from "../components/index";
+import { lazy, Suspense, useEffect } from "react";
 import appAuth from "../app/AuthService";
 import { useDispatch } from "react-redux";
 import { login, logout } from "../store/reducers/authSlice";
@@ -9,7 +9,8 @@ import { showSkeletonFalse } from "../store/reducers/loadingSlice";
 import toast, { Toaster } from "react-hot-toast";
 import Protected from "./Protected";
 import useAllPosts from "../hooks/useAllPosts";
-
+const LazyDistortedGlass = lazy(() => import("../components/ui/DistortedGlass"));
+const LazyFooter = lazy(() => import("../components/Footer"));
 const AppRoute = () => {
       const dispatch = useDispatch();
       const [searchParams] = useSearchParams();
@@ -58,7 +59,9 @@ const AppRoute = () => {
       return (
             <>
                   <Toaster />
-                  <DistortedGlass />
+                  <Suspense fallback={<>Loading</>}>
+                        <LazyDistortedGlass />
+                  </Suspense>
                   <PillNav items={menuItems} className="fixed top-0 hidden sm:flex" />
                   <Routes>
                         <Route index path="/" element={<Home />} />
@@ -98,7 +101,9 @@ const AppRoute = () => {
                         />
                         <Route path="*" element={<Page404 />} />
                   </Routes>
-                  <Footer />
+                  <Suspense fallback={<>Loading</>}>
+                        <LazyFooter />
+                  </Suspense>
             </>
       );
 };
